@@ -15,6 +15,8 @@ function Login() {
   const nav = useNavigate();
   const { data, setData, setUser } = useContext(Userside);
   const inputref = useRef(null);
+
+  //to check registered user is logged in
   const submit = (e) => {
     e.preventDefault();
     let logemail = inputref.current.logemail.value;
@@ -22,7 +24,8 @@ function Login() {
     let userData = data.find((item) => item.email == logemail);
     if (userData && userData.password == logpassword) {
       setUser(userData);
-      nav("/");
+      nav('/profile')
+      //nav("/");
     } else {
       setUser(null);
       alert("invalid user");

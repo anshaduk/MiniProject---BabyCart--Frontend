@@ -29,14 +29,7 @@ const AddnewProduct = () => {
   console.log(newProduct);
   return (
     <form style={{ margin: "30px" }} onSubmit={handle}>
-      <MDBInput
-        wrapperClass="mb-4"
-        id="form6Example3"
-        label="Product name"
-        onChange={(event) => {
-          setNewProduct({ ...newProduct, name: event.target.value });
-        }}
-      />
+      
       <MDBInput
         wrapperClass="mb-4"
         id="form6Example4"
@@ -55,8 +48,16 @@ const AddnewProduct = () => {
       />
       <MDBInput
         wrapperClass="mb-4"
+        id="form6Example3"
+        label="Product price"
+        onChange={(event) => {
+          setNewProduct({ ...newProduct, price: event.target.value });
+        }}
+      />
+      <MDBInput
+        wrapperClass="mb-4"
         id="form6Example4"
-        label="Product Price"
+        label="Product image"
         onChange={(event) => {
           setNewProduct({ ...newProduct, image: event.target.value });
         }}

@@ -13,15 +13,18 @@ import { FaUserNinja } from "react-icons/fa6";
 
 const Navbars = () => {
   const nav = useNavigate();
-
   const { add, user, render, setUser, search, setSearch, products } =
     useContext(Userside);
+
+  //to perform logout
   const logout = () => {
     setUser(null);
     nav("/login");
   };
+
+  //to perform search
   const searchbtn = (e) => {
-    console.log(e);
+    //console.log(e);
     e.preventDefault();
     let searched = e.target[0].value;
     if (!searched) {
@@ -72,7 +75,7 @@ const Navbars = () => {
             </Nav.Link>
             <Nav.Link
               as={Link}
-              to="/about"
+              to="/testimonial"
               style={{ color: "rgb(239, 47, 28, 0.65)", fontWeight: "small" }}
             >
               Testimonial
@@ -97,9 +100,9 @@ const Navbars = () => {
             </Button>
             <BsCart3
               style={{ width: "45px", height: "40px" }}
-              onClick={() => nav("/cart")}
+              onClick={() =>!user?nav('/login'):nav("/cart")}
             />
-            {user && user.cart.reduce((acc, item) => (acc += item.quantity), 0)}
+            {user && user.cart.length}
             {!user ? (
               <FaUserAlt
                 onClick={() => nav("/login")}

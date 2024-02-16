@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import pic1 from "../assets/pic1.jpg";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function Home() {
   const carouselItems = [
@@ -11,7 +11,7 @@ function Home() {
     },
     {
       imageSrc:
-        "https://www.johnsonsbaby.in/sites/jbaby_in/files/slide-images/website-banner-with-cta_1.jpg",
+        "https://images.mamaearth.in/wysiwyg/B3P2F/webwcta.png",
     },
     {
       imageSrc:
@@ -32,6 +32,7 @@ function Home() {
           ))}
         </Carousel>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -17,10 +17,10 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
+import { TypeH2 } from "react-bootstrap-icons";
 
 function Addtocart() {
-  const { user, data, setAdd, setRender, render, setUser } =
-    useContext(Userside);
+  const { user, data, setAdd, setRender, render, setUser } = useContext(Userside);
   const nav = useNavigate();
   const incre = (adding) => {
     setAdd((adding.quantity += 1));
@@ -37,6 +37,10 @@ function Addtocart() {
     user.cart = removeditem;
     setRender(!render);
   };
+
+  const handleClick=()=>{
+    setUser("");
+  }
 
   return (
     <>
@@ -57,14 +61,16 @@ function Addtocart() {
                       >
                         Shopping Cart
                       </MDBTypography>
+                      
                       <MDBTypography className="mb-0 text-muted">
                         {/* {user && user.cart.length} */}
                         {/* {adding.quantity} */}
                       </MDBTypography>
                     </div>
-
+                    {/* {user.cart.length===0?
+                    (<h2>There is no item in cart</h2>):( */}
                     <hr className="my-4" />
-
+                      
                     {user &&
                       user.cart.map((adding, index) => (
                         <React.Fragment key={adding.id}>
@@ -86,6 +92,12 @@ function Addtocart() {
                                 className="text-black mb-0"
                               >
                                 {adding.title}
+                              </MDBTypography>
+                              <MDBTypography
+                                tag="h6"
+                                className="text-black mb-0"
+                              >
+                               ₹ {adding.price} /-
                               </MDBTypography>
                             </MDBCol>
                             <MDBCol
@@ -130,7 +142,8 @@ function Addtocart() {
                           <hr className="my-4" />
                         </React.Fragment>
                       ))}
-
+                      
+                      
                     <div className="pt-5">
                       <MDBTypography tag="h6" className="mb-0">
                         <MDBCardText tag="a" href="/shop" className="text-body">
@@ -154,9 +167,11 @@ function Addtocart() {
 
                     <div className="d-flex justify-content-between mb-4">
                       <MDBTypography tag="h5" className="text-uppercase">
-                        items {user && user.cart.length}
+                        {/* items {user && user.cart.length} */}
+                        Total Items : {user&&user.cart.reduce((acc,item)=>acc += item.quantity,0)}
+                        
                       </MDBTypography>
-                      {/* <MDBTypography tag="h5">€ 132.00</MDBTypography> */}
+                      
                     </div>
 
                     <MDBTypography tag="h5" className="text-uppercase mb-3">
@@ -183,7 +198,7 @@ function Addtocart() {
                         block
                         size="lg"
                         style={{ width: "250px", height: "50px" }}
-                      >
+                       onClick={()=>handleClick()}>
                         Go to checkout
                       </MDBBtn>
                     </NavLink>
@@ -198,3 +213,5 @@ function Addtocart() {
   );
 }
 export default Addtocart;
+
+

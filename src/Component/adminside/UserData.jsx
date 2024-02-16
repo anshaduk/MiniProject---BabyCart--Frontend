@@ -11,30 +11,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 const UserData = () => {
   const nav = useNavigate();
-  const { data, setData, user, setUser, render, setRender } =
-    useContext(Userside);
+  const { data, setData, user, setUser, render, setRender ,add, setAdd } = useContext(Userside);
   console.log(data, "userdata");
+  console.log(data[0].title,"setAdd");
+  console.log(data[0].id,"setAdd");
 
-  // const handleDelete = (data) => {
-  //   // Confirm deletion (optional)
-  //   if (!window.confirm(`Are you sure you want to delete ${data[0].username}?`)) {
-  //     return;
-  //   }
-
-  //   // Update the data state and backend (if applicable)
-  //   try {
-  //     const newData = data.filter((item) => item === data);
-  //     setData(newData);
-  //     nav('/userdata')
-  //     // Send deletion request to backend (if applicable)
-  //     // handle errors and update UI accordingly
-  //   } catch (error) {
-  //     // Handle error gracefully
-  //     console.error("Error deleting data:", error);
-  //     // Display error message to user
-  //   }
-  // };
-
+  
   const DeleteUser = (Index) => {
     const UpdatedUserData = [...data];
     UpdatedUserData.splice(Index, 1);

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { Link } from "react-router-dom";
 import "../Shop.css";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -28,39 +26,38 @@ import { Userside } from "../../App";
 import AdminNavBar from "./AdminNavBar";
 
 const Products = () => {
-  const [updatedProduct, setUpdatedProduct] = useState({}); //Updated details of existing product
-  const [name, setName] = useState(""); //this is used to get the same element when the edit button clicked, becase when we use a function for the template. So we can't get the same element because of the iteration
-  const [addingProduct, setAddingProduct] = useState(false); //to get the Product Add button is clicked or not??
-  const [newProduct, setNewProduct] = useState({
-    Name: "",
-    Gender: "",
-    Type: "",
-    Purchase: 1,
-    price: 0,
-    img: "",
-  });
-
-  const handleChange = (id) => {
-    if (event.target.value !== "" && event.target.name !== "price") {
-      setUpdatedProduct({
-        ...updatedProduct,
-        [event.target.name]: event.target.value,
-      });
-    } else if (event.target.value !== "" && event.target.name === "price") {
-      setUpdatedProduct({
-        ...updatedProduct,
-        price: Number(event.target.value),
-      });
-    } //..............................(2)
-  };
   const nav = useNavigate();
   const { title } = useParams();
   const { search, products, setProducts } = useContext(Userside);
+  
+  // const [newProduct, setNewProduct] = useState({
+  //   Name: "",
+  //   Gender: "",
+  //   Type: "",
+  //   Purchase: 1,
+  //   price: 0,
+  //   img: "",
+  // });
+
+  // const handleChange = (id) => {
+  //   if (event.target.value !== "" && event.target.name !== "price") {
+  //     setUpdatedProduct({
+  //       ...updatedProduct,
+  //       [event.target.name]: event.target.value,
+  //     });
+  //   } else if (event.target.value !== "" && event.target.name === "price") {
+  //     setUpdatedProduct({
+  //       ...updatedProduct,
+  //       price: Number(event.target.value),
+  //     });
+  //   } 
+  // };
+  
   console.log(products, "gggg");
   const filtering = products.filter((product) => product.title == title);
   console.log(filtering);
 
-  const DeleteUser = (Index) => {
+  const DeleteProduct = (Index) => {
     const UpdatedUserData = [...products];
     UpdatedUserData.splice(Index, 1);
     setProducts(UpdatedUserData);
@@ -168,7 +165,7 @@ const Products = () => {
                     color="link"
                     rounded
                     size="sm"
-                    onClick={() => DeleteUser()}
+                    onClick={() => DeleteProduct()}
                   >
                     Delete
                   </MDBBtn>

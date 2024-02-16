@@ -1,6 +1,5 @@
 import React, { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import signpic1 from "../assets/signpic1.jpg";
 import { Userside } from "../App";
 import "./Signup.css";
 import {
@@ -18,8 +17,9 @@ function Signup() {
   const { data, setData } = useContext(Userside);
   const move = useNavigate();
 
+  //to receive user data and store into setData
   const handlesubmit = () => {
-    // e.preventDefault()
+    
     let username = inputref.current.username.value;
     let email = inputref.current.email.value;
     let password = inputref.current.password.value;
@@ -33,11 +33,11 @@ function Signup() {
         ...data,
         { username: username, email: email, password: password, cart: [] },
       ]);
-      // move('/login')
+       move('/login')
       console.log(data, "data");
       console.log(username, email, "profile");
 
-      move("/profile");
+      //move("/profile");
     } else {
       alert("Password is not matching!");
     }

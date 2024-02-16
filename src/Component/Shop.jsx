@@ -20,7 +20,6 @@ function Shop() {
       {/* <Navbar /> */}
       <div className="d-flex justify-content-end align-items-center">
         <Dropdown as={ButtonGroup}>
-          {/* Change the color and style of the button here */}
           <Button
             variant="primary"
             style={{

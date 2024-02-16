@@ -53,7 +53,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/:title" element={<Shop />} />
-          <Route path="/about" element={<Aboutus />} />
+          <Route path="/testimonial" element={<Aboutus />} />
           <Route path="/contact" element={<Contactus />} />
           <Route path="/:title/:id" element={<Show />} />
           <Route path="/cart" element={<Addtocart />} />
@@ -64,10 +64,8 @@ function App() {
           <Route path="/userdata" element={<UserData />} />
           <Route path="/addnewproduct" element={<AddnewProduct />} />
           <Route path="/editproduct/:id" element={<EditProduct />} />
-        
         </Routes>
       </Userside.Provider>
-      <Footer />
     </div>
   );
 }

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Userside } from "../App";
+
 
 const CheckOut = () => {
   return (
@@ -9,6 +11,7 @@ const CheckOut = () => {
       </p>
       <p style={{ textAlign: "center", color: "red" }}>Vist again......!</p>
       <Link to={"/"}>
+        
         <button style={{ alignItems: "center" }}>Go to home</button>
       </Link>
     </div>
